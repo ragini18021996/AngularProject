@@ -1,0 +1,83 @@
+<form [formGroup]="InsertStudentForm">
+
+    <div> 
+    
+    <label for="clientId">Enter clientId </label>
+    
+    <input type="number" formControlName="clientId" id="clientId"/>
+    
+    </div>
+    
+    <div> 
+    
+    <label for="account">Enter account</label>
+    
+    <input type="text" formControlName="account" id="account"/>
+    
+    </div>
+    <div> 
+    
+        <label for="clientName">Enter clientName </label>
+        
+        <input type="text" formControlName="clientName" id="clientName"/>
+        
+        </div>
+
+        <div> 
+    
+            <label for="stringdepart">Enter stringdepart</label>
+            
+            <input type="text" formControlName="stringdepart" id="stringdepart"/>
+            
+            </div>
+    
+    <div> 
+    
+    <label for="projectName">Enter projectName</label>
+    
+    <input type="text" formControlName="projectName" id="projectName"/>
+    
+    </div>
+    
+    <div> 
+    
+    <label for="arrivalDate">Enter arrivalDate </label>
+    
+    <input type="date" formControlName="arrivalDate" id="arrivalDate"/>
+    
+    </div>
+    <div>
+    <label for="deptDate">Enter deptDate </label>
+    
+    <input type="date" formControlName="deptDate" id="deptDate"/>
+    
+    </div>
+    <div>
+        <label for="agenda">Enter agenda </label>
+        
+        <input type="text" formControlName="agenda" id="agenda"/>
+        
+        </div>
+        <div> 
+    
+            <label for=" eventData">Enter  eventData </label>
+            
+            <input type="text" formControlName=" eventData" id=" eventData"/>
+            
+            </div>   
+
+            <div> 
+    
+                <label for="stringarrive">Enter stringarrive </label>
+                
+                <input type="text" formControlName="stringarrive" id=" stringarrive"/>
+                
+                </div> 
+    
+    <button (click)="OnInsertStudent()">Insert </button>
+    
+    
+    </form>
+
+
+    

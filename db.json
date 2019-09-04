@@ -1,0 +1,21 @@
+{
+  "AllStudent":[
+  {"City" : "Delhi",
+  "F_Name": "Hanzo",
+  "L_Name": "Shimada",
+  "Roll_No": "15"
+  
+  }
+  ,
+  {"City" : "Mumbai",
+  "F_Name": "Ana",
+  "L_Name": "Shimada",
+  "Roll_No": "18"
+  
+  }
+  ,
+  {"City" : "Kolkata",
+  "F_Name": "Zarya",
+  "L_Name": "Shimada",
+  "Roll_No": "20"
+   }]}
