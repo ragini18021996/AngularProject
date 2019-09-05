@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient,HttpHeaders, HttpParams, HttpResponse, HttpRequest } from '@angular/common/http';
+import { Observable, throwError } from "rxjs";
  
-import { Observable} from 'rxjs';
+import {catchError,map} from 'rxjs/operators';
 import {Client} from '../Client';
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,29 @@ export class ApiService {
   }
   getService() : Observable<Client[] >
   {
+    console.log("In Service  View .... ")
     return this._http.get<Client[]>("/EventBasedCalendar/view");
   }
 
   InsertClient(client : Client) : Observable<any>
   {
     console.log("In Serv Insert" + client.clientName );
-return this._http.post("/EventBasedCalendar/view", client)
+    console.log('Hello I m here');
+// return this._http.post("/EventBasedCalendar/submitOnDb", client)
+
+return this._http.post("/EventBasedCalendar/submitOnDb", client)
+.pipe(
+  map((res:Response)=>res),
+  catchError(this.errorhandler));
+  };
+ 
+errorhandler(error : Response)
+{
+  console.log(error.status);
+  console.log(error);
+  
+  return throwError(error);
 }
+private _options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 }

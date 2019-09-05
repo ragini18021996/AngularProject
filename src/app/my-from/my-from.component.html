@@ -1,10 +1,10 @@
-<form [formGroup]="InsertStudentForm">
+<form [formGroup]="InsertStudentForm" (ngSubmit) ="OnInsertStudent()">
 
     <div> 
     
-    <label for="clientId">Enter clientId </label>
+    <label for="clientId" hidden>Enter clientId </label>
     
-    <input type="number" formControlName="clientId" id="clientId"/>
+    <input type="number" hidden formControlName="clientId" id="clientId"/>
     
     </div>
     
@@ -23,13 +23,13 @@
         
         </div>
 
-        <div> 
+        <!-- <div> 
     
             <label for="stringdepart">Enter stringdepart</label>
             
             <input type="text" formControlName="stringdepart" id="stringdepart"/>
             
-            </div>
+            </div> -->
     
     <div> 
     
@@ -58,9 +58,9 @@
         <input type="text" formControlName="agenda" id="agenda"/>
         
         </div>
-        <div> 
+        <!-- <div>  -->
     
-            <label for=" eventData">Enter  eventData </label>
+            <!-- <label for=" eventData">Enter  eventData </label>
             
             <input type="text" formControlName=" eventData" id=" eventData"/>
             
@@ -72,9 +72,9 @@
                 
                 <input type="text" formControlName="stringarrive" id=" stringarrive"/>
                 
-                </div> 
+                </div>  -->
     
-    <button (click)="OnInsertStudent()">Insert </button>
+    <button type="submit"> Insert </button>
     
     
     </form>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee} from '../Employee';
 import {HttpClient} from '@angular/common/http';
+import { Client } from 'src/Client';
+import { ApiService } from '../api.service';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -9,10 +12,15 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-   
+   clients : Client[];
   
 
-  constructor() { }
+  constructor(private service:ApiService) { }
+  getServ() : Client[]{
+    console.log("Calling Service");
+    this.service.getService().subscribe(data=>this.clients=data);
+    return this.clients;
+  }
   
   // getEmployees(){
   //   this.clients =[
@@ -24,7 +32,7 @@ export class EmployeeComponent implements OnInit {
   //   ];
   // }
   ngOnInit() {
-    
+     this.clients = this.getServ();
   }
   // searchEmployee1()
   // {

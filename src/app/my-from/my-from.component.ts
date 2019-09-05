@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder} from '@angular/forms';
 import { Employee } from '../Employee';
 import {ApiService} from '../api.service';
 import { Client } from 'src/Client';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-my-from',
   templateUrl: './my-from.component.html',
@@ -37,13 +38,13 @@ export class MyFromComponent implements OnInit {
        'stringarrive':[],
       
       });
-      this.getServ();
+      this.clients= this.getServ();
   }
   OnInsertStudent(){
     console.log(this.InsertStudentForm.value);
     let client=this.InsertStudentForm.value
    
-    // console.log(Employee);
+     console.log(client);
     // this.Employees =[
     //   {Id:101,name:'Priyanka',Dept:'IT',D_O_J:'10-12-2019', salary:27000},
     //   {Id:102,name:'Deepak',Dept:'Admin',D_O_J:'09-02-2016', salary:28000},
@@ -52,8 +53,18 @@ export class MyFromComponent implements OnInit {
     //   {Id:105,name:'Nilam',Dept:'IT',D_O_J:'06-02-2019', salary:29000},
     // ];
      alert(this.clients.length);
-     this.service.InsertClient(client);
-     alert(this.clients.length);
+     this.service.InsertClient(client)
+     .subscribe((result)=> {console.log(result)
+     
+   },
+   error=>{
+     alert(error.message);
+     console.log(error.message);
+   },
+     ()=> {
+       console.log("Insertion successfull")
+     }
+     );
   }
 
 }
